@@ -8,20 +8,26 @@ if [ ! -d "./logs/LongForecasting" ]; then
 fi
 seq_len=336
 model_name=DLinear
+num_workers=4
+itr=1
+train_epochs=10
+enc_in=1
 
 python -u run_longExp.py \
   --is_training 1 \
   --root_path ./dataset/ \
-  --data_path exchange_rate.csv \
+  --data_path Exness_BTCUSD_2021.csv \
   --model_id Exchange_$seq_len'_'96 \
   --model $model_name \
   --data custom \
-  --features M \
+  --features S \
   --seq_len $seq_len \
   --pred_len 96 \
-  --enc_in 8 \
+  --enc_in $enc_in \
   --des 'Exp' \
-  --itr 1 --batch_size 8 --learning_rate 0.0005 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'96.log 
+  --itr $itr --batch_size 8 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'96.log \
+  --num_workers $num_workers \
+  --train_epochs $train_epochs
 
 python -u run_longExp.py \
   --is_training 1 \
@@ -30,12 +36,14 @@ python -u run_longExp.py \
   --model_id Exchange_$seq_len'_'192 \
   --model $model_name \
   --data custom \
-  --features M \
+  --features S \
   --seq_len $seq_len \
   --pred_len 192 \
-  --enc_in 8 \
+  --enc_in $enc_in \
   --des 'Exp' \
-  --itr 1 --batch_size 8 --learning_rate 0.0005 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'192.log 
+  --itr $itr --batch_size 8 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'192.log \
+  --num_workers $num_workers \
+  --train_epochs $train_epochs
 
 python -u run_longExp.py \
   --is_training 1 \
@@ -44,12 +52,14 @@ python -u run_longExp.py \
   --model_id Exchange_$seq_len'_'336 \
   --model $model_name \
   --data custom \
-  --features M \
+  --features S \
   --seq_len $seq_len \
   --pred_len 336 \
-  --enc_in 8 \
+  --enc_in $enc_in \
   --des 'Exp' \
-  --itr 1 --batch_size 32  --learning_rate 0.0005 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'336.log 
+  --itr $itr --batch_size 32  --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'336.log   \
+  --num_workers $num_workers \
+  --train_epochs $train_epochs
 
 python -u run_longExp.py \
   --is_training 1 \
@@ -58,9 +68,11 @@ python -u run_longExp.py \
   --model_id Exchange_$seq_len'_'720 \
   --model $model_name \
   --data custom \
-  --features M \
+  --features S \
   --seq_len $seq_len \
   --pred_len 720 \
-  --enc_in 8 \
+  --enc_in $enc_in \
   --des 'Exp' \
-  --itr 1 --batch_size 32 --learning_rate 0.0005 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'720.log
+  --itr $itr --batch_size 32 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'720.log  \
+  --num_workers $num_workers \
+  --train_epochs $train_epochs

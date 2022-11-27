@@ -43,6 +43,8 @@ class Model(nn.Module):
         super(Model, self).__init__()
         self.seq_len = configs.seq_len
         self.pred_len = configs.pred_len
+        self.batch  = configs.batch_size
+       
 
         # Decompsition Kernel Size
         kernel_size = 25
@@ -64,6 +66,10 @@ class Model(nn.Module):
         else:
             self.Linear_Seasonal = nn.Linear(self.seq_len,self.pred_len)
             self.Linear_Trend = nn.Linear(self.seq_len,self.pred_len)
+
+            self.Linear_Seasonal_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
+            self.Linear_Trend_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
+
             
             # Use this two lines if you want to visualize the weights
             # self.Linear_Seasonal.weight = nn.Parameter((1/self.seq_len)*torch.ones([self.pred_len,self.seq_len]))
@@ -72,7 +78,9 @@ class Model(nn.Module):
     def forward(self, x):
         # x: [Batch, Input length, Channel]
         seasonal_init, trend_init = self.decompsition(x)
-        seasonal_init, trend_init = seasonal_init.permute(0,2,1), trend_init.permute(0,2,1)
+        #seasonal_init, trend_init = seasonal_init.permute(0,2,1), trend_init.permute(0,2,1)
+
+        
         if self.individual:
             seasonal_output = torch.zeros([seasonal_init.size(0),seasonal_init.size(1),self.pred_len],dtype=seasonal_init.dtype).to(seasonal_init.device)
             trend_output = torch.zeros([trend_init.size(0),trend_init.size(1),self.pred_len],dtype=trend_init.dtype).to(trend_init.device)
@@ -80,8 +88,15 @@ class Model(nn.Module):
                 seasonal_output[:,i,:] = self.Linear_Seasonal[i](seasonal_init[:,i,:])
                 trend_output[:,i,:] = self.Linear_Trend[i](trend_init[:,i,:])
         else:
-            seasonal_output = self.Linear_Seasonal(seasonal_init)
-            trend_output = self.Linear_Trend(trend_init)
+            #seasonal_init, trend_init = seasonal_init.permute(0,2,1), trend_init.permute(0,2,1)
+            #print(seasonal_init.shape)
+            seasonal_output,_ = self.Linear_Seasonal_RNN(seasonal_init,None)
+            trend_output,_ = self.Linear_Trend_RNN(trend_init,None)
+
+            seasonal_output = self.Linear_Seasonal(seasonal_output.permute(0,2,1))
+            trend_output = self.Linear_Trend(trend_output.permute(0,2,1))
 
         x = seasonal_output + trend_output
         return x.permute(0,2,1) # to [Batch, Output length, Channel]
+        
+        #return x
