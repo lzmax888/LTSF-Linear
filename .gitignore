@@ -2,5 +2,7 @@
 *.pth
 *.pyc
 *.npy
-*.log
+
 *.csv
+*.zip
+*.out

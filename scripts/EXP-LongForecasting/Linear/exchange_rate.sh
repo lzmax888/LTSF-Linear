@@ -8,9 +8,9 @@ if [ ! -d "./logs/LongForecasting" ]; then
 fi
 seq_len=336
 model_name=DLinear
-num_workers=4
+num_workers=35
 itr=1
-train_epochs=10
+train_epochs=1
 enc_in=1
 
 python -u run_longExp.py \
@@ -25,7 +25,7 @@ python -u run_longExp.py \
   --pred_len 96 \
   --enc_in $enc_in \
   --des 'Exp' \
-  --itr $itr --batch_size 8 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'96.log \
+  --itr $itr --batch_size 256 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'96.log \
   --num_workers $num_workers \
   --train_epochs $train_epochs
 
@@ -41,7 +41,7 @@ python -u run_longExp.py \
   --pred_len 192 \
   --enc_in $enc_in \
   --des 'Exp' \
-  --itr $itr --batch_size 8 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'192.log \
+  --itr $itr --batch_size 64 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'192.log \
   --num_workers $num_workers \
   --train_epochs $train_epochs
 
@@ -57,7 +57,7 @@ python -u run_longExp.py \
   --pred_len 336 \
   --enc_in $enc_in \
   --des 'Exp' \
-  --itr $itr --batch_size 32  --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'336.log   \
+  --itr $itr --batch_size 64  --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'336.log   \
   --num_workers $num_workers \
   --train_epochs $train_epochs
 
@@ -73,6 +73,6 @@ python -u run_longExp.py \
   --pred_len 720 \
   --enc_in $enc_in \
   --des 'Exp' \
-  --itr $itr --batch_size 32 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'720.log  \
+  --itr $itr --batch_size 64 --learning_rate 0.001 >logs/LongForecasting/$model_name'_'Exchange_$seq_len'_'720.log  \
   --num_workers $num_workers \
   --train_epochs $train_epochs
