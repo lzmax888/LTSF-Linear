@@ -33,3 +33,13 @@ test 7482335
 	speed: 3.2344s/iter; left time: 161234.0470s
 	iters: 1400, epoch: 1 | loss: 0.0000865
 	speed: 3.2229s/iter; left time: 160338.4972s
+	iters: 1500, epoch: 1 | loss: 0.0001052
+	speed: 3.2930s/iter; left time: 163495.4651s
+	iters: 1600, epoch: 1 | loss: 0.0001004
+	speed: 3.2388s/iter; left time: 160481.4577s
+	iters: 1700, epoch: 1 | loss: 0.0000957
+	speed: 3.2261s/iter; left time: 159525.0629s
+	iters: 1800, epoch: 1 | loss: 0.0001041
+	speed: 3.2270s/iter; left time: 159250.1162s
+	iters: 1900, epoch: 1 | loss: 0.0000857
+	speed: 3.2391s/iter; left time: 159524.5537s

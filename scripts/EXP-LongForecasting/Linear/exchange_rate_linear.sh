@@ -10,7 +10,7 @@ seq_len=336
 model_name=Linear
 num_workers=35
 itr=1
-train_epochs=1
+train_epochs=5
 enc_in=1
 
 python -u run_longExp.py \
