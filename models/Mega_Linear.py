@@ -3,7 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 
-from mega_pytorch import MegaLayer
+#from mega_pytorch import MegaLayer
 
 from fairseq.modules.moving_average_gated_attention import MovingAverageGatedAttention
 
@@ -101,8 +101,8 @@ class Model(nn.Module):
             self.Linear_Seasonal = nn.Linear(self.seq_len,self.pred_len)
             self.Linear_Trend = nn.Linear(self.seq_len,self.pred_len)
 
-            self.Linear_Seasonal_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
-            self.Linear_Trend_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
+            #self.Linear_Seasonal_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
+            #self.Linear_Trend_RNN = nn.GRU(input_size = 1,hidden_size = 1, batch_first=True,num_layers=1)
 
             
             # Use this two lines if you want to visualize the weights
@@ -124,11 +124,11 @@ class Model(nn.Module):
         else:
             #seasonal_init, trend_init = seasonal_init.permute(0,2,1), trend_init.permute(0,2,1)
             #print(seasonal_init.shape)
-            seasonal_output,_ = self.mov_avg_seasonal(seasonal_init)
-            trend_output,_ = self.mov_avg_trend(trend_init)
+            seasonal_output,_ = self.mov_avg_seasonal(seasonal_init.permute(1,0,2)) # [T,B,C]
+            trend_output,_ = self.mov_avg_trend(trend_init.permute(1,0,2))
 
-            seasonal_output = self.Linear_Seasonal(seasonal_output.permute(0,2,1))
-            trend_output = self.Linear_Trend(trend_output.permute(0,2,1))
+            seasonal_output = self.Linear_Seasonal(seasonal_output.permute(1,2,0)) # [B,C,T]
+            trend_output = self.Linear_Trend(trend_output.permute(1,2,0))
 
         x = seasonal_output + trend_output
         return x.permute(0,2,1) # to [Batch, Output length, Channel]
