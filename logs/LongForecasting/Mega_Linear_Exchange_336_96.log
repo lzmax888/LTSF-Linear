@@ -27,3 +27,9 @@ test 7482335
 	speed: 3.2287s/iter; left time: 161918.3357s
 	iters: 1100, epoch: 1 | loss: 0.0000912
 	speed: 3.2843s/iter; left time: 164376.3625s
+	iters: 1200, epoch: 1 | loss: 0.0001045
+	speed: 3.3240s/iter; left time: 166031.6114s
+	iters: 1300, epoch: 1 | loss: 0.0000913
+	speed: 3.2344s/iter; left time: 161234.0470s
+	iters: 1400, epoch: 1 | loss: 0.0000865
+	speed: 3.2229s/iter; left time: 160338.4972s
