@@ -5,3 +5,5 @@ Use CPU
 train 26188076
 val 3741122
 test 7482335
+	iters: 100, epoch: 1 | loss: 0.0001063
+	speed: 3.2887s/iter; left time: 167885.4475s
