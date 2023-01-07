@@ -6,4 +6,24 @@ train 26188076
 val 3741122
 test 7482335
 	iters: 100, epoch: 1 | loss: 0.0001063
-	speed: 3.2887s/iter; left time: 167885.4475s
+	speed: 3.2399s/iter; left time: 165391.8019s
+	iters: 200, epoch: 1 | loss: 0.0001152
+	speed: 3.2371s/iter; left time: 164926.4625s
+	iters: 300, epoch: 1 | loss: 0.0000921
+	speed: 3.2220s/iter; left time: 163837.6163s
+	iters: 400, epoch: 1 | loss: 0.0000757
+	speed: 3.6930s/iter; left time: 187413.7043s
+	iters: 500, epoch: 1 | loss: 0.0000843
+	speed: 3.2349s/iter; left time: 163843.9333s
+	iters: 600, epoch: 1 | loss: 0.0000999
+	speed: 3.2137s/iter; left time: 162448.3255s
+	iters: 700, epoch: 1 | loss: 0.0000937
+	speed: 3.2289s/iter; left time: 162896.4372s
+	iters: 800, epoch: 1 | loss: 0.0000921
+	speed: 3.3829s/iter; left time: 170324.4367s
+	iters: 900, epoch: 1 | loss: 0.0000932
+	speed: 3.2420s/iter; left time: 162909.3733s
+	iters: 1000, epoch: 1 | loss: 0.0001025
+	speed: 3.2287s/iter; left time: 161918.3357s
+	iters: 1100, epoch: 1 | loss: 0.0000912
+	speed: 3.2843s/iter; left time: 164376.3625s

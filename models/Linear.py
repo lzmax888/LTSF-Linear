@@ -22,6 +22,7 @@ class Model(nn.Module):
             zdim=8,
             hdim=8,
             ndim=8,
+            rel_pos_bias = 'rotary'
             )
     
 

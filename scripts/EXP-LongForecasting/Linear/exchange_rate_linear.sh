@@ -7,7 +7,7 @@ if [ ! -d "./logs/LongForecasting" ]; then
     mkdir ./logs/LongForecasting
 fi
 seq_len=336
-model_name=Mega_Linear
+model_name=Linear
 num_workers=35
 itr=1
 train_epochs=1
