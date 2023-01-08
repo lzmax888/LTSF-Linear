@@ -5,3 +5,17 @@ Use CPU
 train 26188076
 val 3741122
 test 7482335
+	iters: 100, epoch: 1 | loss: 0.0001011
+	speed: 1.7096s/iter; left time: 437045.8656s
+	iters: 200, epoch: 1 | loss: 0.0000896
+	speed: 1.6706s/iter; left time: 426895.5220s
+	iters: 300, epoch: 1 | loss: 0.0000983
+	speed: 1.6836s/iter; left time: 430064.9284s
+	iters: 400, epoch: 1 | loss: 0.0000796
+	speed: 1.6779s/iter; left time: 428445.8923s
+	iters: 500, epoch: 1 | loss: 0.0000893
+	speed: 1.6737s/iter; left time: 427199.2365s
+	iters: 600, epoch: 1 | loss: 0.0000934
+	speed: 1.6747s/iter; left time: 427275.0788s
+	iters: 700, epoch: 1 | loss: 0.0001071
+	speed: 1.6788s/iter; left time: 428163.8423s

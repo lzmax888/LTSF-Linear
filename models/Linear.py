@@ -19,9 +19,9 @@ class Model(nn.Module):
         
         self.mov_avg = MovingAverageGatedAttention(
             embed_dim=1,
-            zdim=8,
-            hdim=8,
-            ndim=8,
+            zdim=16,
+            hdim=256,
+            ndim=256,
             rel_pos_bias = 'rotary'
             )
     
