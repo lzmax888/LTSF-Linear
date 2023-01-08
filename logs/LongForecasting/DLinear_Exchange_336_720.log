@@ -5,10 +5,3 @@ Use CPU
 train 4256
 val 41
 test 798
-Epoch: 1 cost time: 12.21353530883789
-Epoch: 1, Steps: 66 | Train Loss: 0.7215600 Vali Loss: nan Test Loss: 1.3961428
-Validation loss decreased (inf --> nan).  Saving model ...
-Updating learning rate to 0.001
->>>>>>>testing : Exchange_336_720_DLinear_custom_ftS_sl336_ll48_pl720_dm512_nh8_el2_dl1_df2048_fc1_ebtimeF_dtTrue_Exp_0<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-test 798
-mse:1.3961427211761475, mae:1.0007526874542236
