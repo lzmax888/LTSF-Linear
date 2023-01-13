@@ -1,7 +1,4 @@
 Args in experiment:
-Namespace(activation='gelu', batch_size=64, c_out=7, checkpoints='./checkpoints/', d_ff=2048, d_layers=1, d_model=512, data='custom', data_path='exchange_rate.csv', dec_in=7, des='Exp', devices='0,1,2,3', distil=True, do_predict=False, dropout=0.05, e_layers=2, embed='timeF', embed_type=0, enc_in=1, factor=1, features='S', freq='h', gpu=0, individual=False, is_training=1, itr=1, label_len=48, learning_rate=0.001, loss='mse', lradj='type1', model='DLinear', model_id='Exchange_336_192', moving_avg=25, n_heads=8, num_workers=35, output_attention=False, patience=3, pred_len=192, root_path='./dataset/', seq_len=336, target='OT', test_flop=False, train_epochs=1, use_amp=False, use_gpu=False, use_multi_gpu=False)
-Use CPU
+Namespace(is_training=1, model_id='Exchange_336_192', model='DLinear', data='custom', root_path='./dataset/', data_path='exchange_rate.csv', features='S', target='OT', freq='h', checkpoints='./checkpoints/', seq_len=336, label_len=48, pred_len=192, individual=False, embed_type=0, enc_in=1, dec_in=7, c_out=7, d_model=512, n_heads=8, e_layers=2, d_layers=1, d_ff=2048, moving_avg=25, factor=1, distil=True, dropout=0.05, embed='timeF', activation='gelu', output_attention=False, do_predict=False, num_workers=35, itr=1, train_epochs=1, batch_size=64, patience=3, learning_rate=0.001, des='Exp', loss='mse', lradj='type1', use_amp=False, use_gpu=True, gpu=0, use_multi_gpu=False, devices='0,1,2,3', test_flop=False)
+Use GPU: cuda:0
 >>>>>>>start training : Exchange_336_192_DLinear_custom_ftS_sl336_ll48_pl192_dm512_nh8_el2_dl1_df2048_fc1_ebtimeF_dtTrue_Exp_0>>>>>>>>>>>>>>>>>>>>>>>>>>
-train 4784
-val 569
-test 1326
